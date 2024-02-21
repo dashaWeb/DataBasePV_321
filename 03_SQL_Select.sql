@@ -53,7 +53,7 @@ values('History'),
 ('English'),
 ('Math')
 
-select s.Name as 'Name Student', st.Name as 'Name Subject'
+select s.Name as 'Name Subject', st.Name as 'Name Student'
 from Students as st, Subject as s
 
 /*
@@ -73,12 +73,12 @@ select* from Students
 where YEAR(Birthday) = 2006 and MONTH(Birthday) = 3 and Day(Birthday) > 15
 
 
--- Like (pettern)
+-- Like (pattern)
 /*
 	% - будь-яка кількість символів
 	_ - один символ
-	[] - будь-який символ наявний в дужках
-	[^] - будь-який символ НЕ наявний в дужках
+	[abv] - будь-який символ наявний в дужках
+	[^ret] - будь-який символ НЕ наявний в дужках
 */
 
 -- студенти імя яких починається і закінчується на а

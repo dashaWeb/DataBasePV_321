@@ -109,10 +109,20 @@ from Teachers as t, Groups as g, TeachersGroups as tg
 where tg.TeacherId = t.Id and tg.GroupId = g.Id
 
 select s.Name, t.Id, t.Name
-from Students as s, Groups as g, Teachers as t, TeachersGroups as tg
-where s.GroupId = tg.GroupId and t.Id = tg.TeacherId and g.Id = tg.GroupId and s.Name = 'Bren'
+from Students as s join TeachersGroups as tg on s.GroupId = tg.GroupId
+					join Teachers as t on t.Id = tg.TeacherId
+					join Groups as g on g.Id = tg.GroupId
+where  s.Name = 'Yuri'
 
 select t.Name as 'Teacher', s.Name as 'Students' , g.Name as 'Group'
 from Students as s, Groups as g, Teachers as t, TeachersGroups as tg
 where s.GroupId = tg.GroupId and t.Id = tg.TeacherId and g.Id = tg.GroupId and t.Name = 'Tana'
 order by g.Name
+
+-- ті самі запити через join
+select t.Name, t.Phone, g.Name as 'Group Name'
+from Teachers as t join TeachersGroups as tg on t.Id = tg.TeacherId 
+					join Groups as g on tg.GroupId = g.Id
+
+
+select * from Students

@@ -49,6 +49,7 @@ from Students, Groups as g
 
 select g.Name as 'Group', Count(s.Id) as 'Count of students', Max(s.AverageMark) as 'Max mark', ROUND(AVG(s.AverageMark),2) as 'Average Mark' 
 from Groups as g join Students as s on g.Id = s.GroupId
+where AverageMark >9
 group by g.Name -- вказуємо ключ групування
 having COUNT(s.Id) >= 10 -- фільтр для груп
 
